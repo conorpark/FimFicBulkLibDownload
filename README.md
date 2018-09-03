@@ -7,3 +7,8 @@ Planned Features:
 - Expanded file type capability
 - Progress bar/specific story download failure message
 - Fix occasional file download error where a story is downloaded successfully, but the file itself is missing it's format
+- Add author to title of downloaded file
+
+Upcoming Projects:
+- Spotify Playlist music downloader, with auto search capability between three sources, Youtube, Soundcloud, and Bandcamp.
+- Bandcamp downloader
