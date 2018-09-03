@@ -99,27 +99,33 @@ function downloadStory(storyID){
 
 function downloadStories(validateurl){
     var downloadurl = validateurl;
-    try{
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-            chrome.tabs.sendMessage(tabs[0].id, {message: message, windowId: tabs[0].windowId}, function(response){
-                if (response == null || response.Data == null || response.Data.length < 1){
-                    alert("No stories detected in the library. Make sure you are on your favourites page in FULL VIEW (not card or list view) " + 
-                        "and that you have an internet connection.");
-                }
-                else
-                {
-                    for (var i = 0; i < response.Data.length; i++)
-                    {
-                        downloadStory(response.Data[i].toString());
+    chrome.contentSettings.automaticDownloads.set({
+        'primaryPattern': "https://fimfiction.net/*",
+        'setting': "allow",
+        'scope': ("regular")
+      }, function(){
+        try{
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+                chrome.tabs.sendMessage(tabs[0].id, {message: message, windowId: tabs[0].windowId}, function(response){
+                    if (response == null || response.Data == null || response.Data.length < 1){
+                        alert("No stories detected in the library. Make sure you are on your favourites page in FULL VIEW (not card or list view) " + 
+                            "and that you have an internet connection.");
                     }
-                    downloadurl = validateurl + "?page=2";
-                    startContentScript(downloadurl, 2, validateurl, tabs[0].id, response.WindowID);
-                }
+                    else
+                    {
+                        for (var i = 0; i < response.Data.length; i++)
+                        {
+                            downloadStory(response.Data[i].toString());
+                        }
+                        downloadurl = validateurl + "?page=2";
+                        startContentScript(downloadurl, 2, validateurl, tabs[0].id, response.WindowID);
+                    }
+                });
             });
-        });
-    }catch(err){
-        alert(errorEnum.GENERALEXCEPTION);
-    }
+        }catch(err){
+            alert(errorEnum.GENERALEXCEPTION);
+        }
+    });
 }
 
 function startContentScript(changedurl, index, validateurl, tabid, windowID){

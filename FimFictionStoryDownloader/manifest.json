@@ -12,7 +12,7 @@
     },
     "permissions": [
         "http://*/*", "https://*/*", "activeTab", "tabs", "https://fimfiction.net/*"
-        , "downloads"
+        , "downloads", "contentSettings"
     ],
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*"],
