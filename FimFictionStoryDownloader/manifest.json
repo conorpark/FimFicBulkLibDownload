@@ -1,7 +1,7 @@
 ﻿{
     "manifest_version": 2,
     "name": "FimFiction Story Downloader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Allows you to download your entire fimfiction.net library for backup or archive purposes.",
     "icons": {
        "128": "icon.png" 
