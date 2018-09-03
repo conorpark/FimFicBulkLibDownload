@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* Tooltip container */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                text-align: center;
+               /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+            }
+            /* Show the tooltip text when you mouse over the tooltip container */
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+            /* Tooltip text */
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                top: 150%;
+                left: 50%;
+                margin-left: -60px;
+                /* Position the tooltip text - see examples below! */
+                position: absolute;
+                z-index: 1;
+            }
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: transparent transparent black transparent;
+            }
+            .CustomPopup{
+                width:220px;
+                height:200px;
+                text-align: center;
+            }
+            .downloadRadiobutton{
+                display: inline-block;
+            }
+            .downloadTypeForm{
+                text-align: center;
+            }
+            #mainbutton{
+                text-align: center;
+            }
+        </style>
+        <title>Fimfiction Library Downloader</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="CustomPopup">
+        <button type="button" id="mainbutton">Download Library</button>
+        <h2>Download Options</h2>
+        <form class="downloadTypeForm">
+            <div class="tooltip">
+                <span class="tooltiptext">Minimally Formatted Text Output</span>
+                <input type="radio" id="radiotext" name="storytype" value="text" class="downloadRadiobutton" checked>Text<br />
+            </div>
+            <div class="tooltip">
+                <span class="tooltiptext">Saves stories as an offline HTML page that contains the fimifction.net styling</span>
+                <input type="radio" id="radiohtml" name="storytype" value="html" class="downloadRadiobutton">Html<br />
+            </div>
+            <div class="tooltip">
+                <span class="tooltiptext">Kindle/E-Reader Format</span>
+                <input type="radio" id="radioepub" name="storytype" value="epub" class="downloadRadiobutton">Epub<br />
+            </div>
+        </form>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="popup.js"></script> 
+    </body>    
+</html>
