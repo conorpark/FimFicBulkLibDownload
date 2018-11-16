@@ -1,0 +1,19 @@
+{
+  "name": "fimficbulklibdownload",
+  "version": "1.1.0",
+  "description": "default",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conorpark/FimFicBulkLibDownload.git"
+  },
+  "author": "conorpark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conorpark/FimFicBulkLibDownload/issues"
+  },
+  "homepage": "https://github.com/conorpark/FimFicBulkLibDownload#readme"
+}
